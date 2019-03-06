@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>TimeManager Admin</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="../static/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../static/css/sb-admin.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+      <a class="navbar-brand mr-1" href= "{{ url_for('index')}}">Start TimeManager</a>
+
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Navbar Search -->
+      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Navbar -->
+      <ul class="navbar-nav ml-auto ml-md-0">
+        <li class="nav-item dropdown no-arrow mx-1">
+          <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-bell fa-fw"></i>
+            <span class="badge badge-danger">9+</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+            <a class="dropdown-item" href="#">New Notification</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">History</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown no-arrow mx-1">
+          <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-envelope fa-fw"></i>
+            <span class="badge badge-danger">7</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+            <a class="dropdown-item" href="#">New Message</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">History</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-circle fa-fw"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="#">Settings</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+          </div>
+        </li>
+      </ul>
+
+    </nav>
+
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <ul class="sidebar navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href= "{{ url_for('index')}}">
+            <i class="fas fa-archive"></i>
+            <span>Project</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('surroundings')}}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Surroundings</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('finding')}}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Finding</span></a>
+        </li>
+
+		<li class="nav-item">
+          <a class="nav-link" href="{{ url_for('myself')}}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Myself</span>
+          </a>
+        </li>
+      </ul>
+
+      <div id="content-wrapper">
+
+        <div class="container-fluid">
+		  <!-- Breadcrumbs-->
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="index.html">TimeManager</a>
+            </li>
+            <li class="breadcrumb-item active">Myself</li>
+          </ol>
+
+		  <!-- Page Content -->
+          <hr>
+  <head><meta http-equiv="Content-Type" content="text/html; charset=gbk//IGNORE"></meta><style>
+                    html,body,p,ul,table,tr,td{margin:0;padding:0}
+                    a{text-decoration:none}
+                    li{list-style:none}
+                    img{border:0 none}
+                    body{font-family:'Microsoft YaHei';font-size:14px}
+                    div,span,a{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}
+                    table{border-collapse:collapse;border-spacing:0;border:0 none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box}
+                    td{text-align:left}
+                    .resume_clearfix{display:block;overflow:hidden;clear:both}
+                    .all_wrap{width:1640px}
+                    .logo_divide{border-bottom:1px solid #b9b9b9}
+                    .at{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+                    .page{width:2000px;margin:0 auto;padding:3px;background-color:#FFFFFF}
+                    .gray{color:#919191 !important}
+                    .l_green{color:#6d8194 !important}
+                    .blue{color:#4567af !important}
+                    .yellow{color:#fae001 !important}
+                    .y_green{color:#000000 !important}
+                    .s_blue{color:#00a0e9 !important}
+                    .orange{color:#EE0000 !important}
+                    .resume_box{border:15px solid #efefef}
+                    .company{font-size:12px;font-weight:bold}
+                    .infomation_l{width:266px;vertical-align:top;background-color:#2d4e5c}
+                    .top{margin:26px 0px 18px 0px}
+                    .picture{text-align:center}
+                    .name{height:40px;line-height:40px;font-size:18px;color:#fff;text-align:center}
+                    .posi{width:265px;line-height:10px;text-align:center;padding:0 10px}
+                    .mes_l{margin-left:20px}
+                    .title{height:30px;font-weight:bold;color:#d8dcde}
+                    .border_b2{margin-left:20px;border-bottom:1px solid #91a875}
+                    .per_list{line-height:35px;font-size:12px;color:#d8dcde}
+                    .title_iconl{*width:12px;padding-right:8px}
+                    .title_icon1 img{margin-top:5px}
+                    .b_border{border-top:1px solid #233c47}
+                    .dir{vertical-align:top}
+                    .limit1{width:180px}
+                    .wid{width:225px}
+                    .limit2{width:204px}
+                    .con{position:relative;width:176px;height:16px;*height:15px;top:2px;border:1px solid #b9b9b9}
+                    .rank{position:absolute;top:0;left:0;width:70%;height:16px;line-height:16px;text-indent:6px;top:0px;left:0px;background-color:#b9b9b9}
+                    .email{max-width:146px;word-wrap:break-word}
+                    .infomation_r{width:2000px;vertical-align:top;padding-left:12px;background-color:#efefef}
+                    .mes_r{margin-left:26px;padding:10px 0 16px 0}
+                    .title_icon{*width:17px;padding-right:8px;border:0 none}
+                    .title_icon img{margin-top:0px}
+                    .title_txt{width:1000px;height:28px;line-height:28px;font-weight:bold;color:#2d4e5c;text-align:left;border-bottom:1px solid #96a6ad}
+                    .title_txt1{width:1000px;height:27px;line-height:27px;font-weight:bold;color:#d8dcde;text-align:left}
+                    .mes_boxl{margin:10px 0 22px 0}
+                    .mes_detail{margin:10px 0px 16px 0px}
+                    .mes_detail_a{margin-bottom:10px}
+                    .mes_r .info_list{line-height:24px;font-size:12px;color:#000;overflow:hidden}
+                    .mes_r .limit{width:290px}
+                    .mes_r .edu{width:42px;line-height:15px;}
+                    .mes_r .edu_a{width:100px;line-height:15px;}
+                    .mes_r .reu{max-width:144px;line-height:15px;}
+                    .mes_r .reu_a{max-width:190px;vertical-align:top;padding-right:20px}
+                    .mes_r .in{line-height:22px;font-size:12px;color:#919191}
+                    .mes_r .exp{width:180px}
+                    .mes_r .pofi{width:106px;text-align:right;vertical-align:top}
+                    .mes_r .edu1{width:206px;margin-right:20px}
+                    .mes_r .edu2{width:220px;padding-right:20px}
+                    .mes_r .edu2 span{display:block;width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+                    .infomation_l2{width:276px;vertical-align:top;background-color:#466820}
+					.title_txt_b{width:1200px;height:12px;line-height:3px;font-weight:bold;color:#000000;text-align:left;border-bottom:1px solid #a2b68c}
+                    .mes_l
+                    .mer_right{line-height:22px;font-size:12px;color:#919191;padding-left:25px;}
+                </style></head><body><div xmlns="" class="page"><div class="all_wrap"><table class="resume_box"><tbody><tr>
+<td class="infomation_l2">
+<div class="top">
+<p class="picture"><img src="../static/image/image_m.png" alt="简历照片" width="200" height="160"></p>
+<p class="name">张全蛋</p>
+<p class="posi"><a class="yellow" >锤子工，瓦工</a></p>
+</div>
+</td>
+
+<td class="infomation_r">
+
+<table class="per_title"><tbody><tr>
+<td class="title_icon" valign="middle"><img src="https://img03.51jobcdn.com/im/2017/resumetemplate/xsl/icon2_type2.png" alt="最高学历" width="17" height="16"></td>
+<td width="1000"><p class="title_txt_b">个人信息</p></td>
+</tr></tbody></table>
+<div class="mes_boxl">
+<table class="mes_l"><tbody><tr class="edu">
+<td class="edu"><span>年龄：</span></td>
+<td class="limit1"><span class="y_green">27</span></td>
+</tr></tbody></table>
+<br>
+<table class="mes_l"><tbody><tr class="edu">
+<td class="edu"><span>工龄：</span></td>
+<td class="limit1"><span class="y_green">4年瓦工</span></td>
+</tr></tbody></table>
+<br>
+<table class="mes_l"><tbody><tr class="edu">
+<td class="edu"><span>完成任务数：</span></td>
+<td class="limit1"><span class="y_green">45</span></td>
+</tr></tbody></table>
+<br>
+<table class="mes_l"><tbody><tr class="edu">
+<td class="edu"><span>历史评价：</span></td>
+<td class="limit1"><span class="orange"><u>3.7(32个评价)</u></span></td>
+</tr></tbody></table>
+<br>
+<table class="mes_l"><tbody><tr class="edu">
+<td class="edu"><span>联系电话：</span></td>
+<td class="limit2"><span class="y_green">13717555325</span></td>
+</tr></tbody></table>
+<br>
+<table class="mes_l"><tbody><tr class="edu">
+<td class="edu"><span>工人特点：</span></td>
+<td class="limit1"><span class="gray"><i><u>干活快，认真细致，准时到</u></i></span></td>
+</tr></tbody></table>
+</div>
+
+</tr></tbody></table></div></div></body></html>
+
+
+
+		   <div class="card mb-3">
+            <div class="card-header">
+              <i class="fas fa-chart-area"></i>
+              Historical performance</div>
+            <div class="card-body">
+              <canvas id="myAreaChart" width="100%" height="30"></canvas>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright © Your Website 2018</span>
+            </div>
+          </div>
+        </footer>
+
+      </div>
+      <!-- /.content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="../static/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../static/js/sb-admin.min.js"></script>
+	<script src="../static/js/demo/chart-area-demo.js"></script>
+  </body>
+
+</html>
